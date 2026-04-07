@@ -15,7 +15,7 @@ jobs:
       - name: Run date
         run: |
           date
-      - name: Say hello
+      - name: Run ls -l
         run: |
-          ls -1
+          ls -l
   
