@@ -36,7 +36,7 @@ module.exports = [
     }
   },
   {
-    files: ['src/**/*.{js,jsx}', 'test/**/*.{js,jsx}'],
+    files: ['src/**/*.{js,jsx}', 'test/**/*.{js,jsx}','playwright.config.js','e2e-tests/**/example.spec.js'],
     plugins: {
       react,
       jest
