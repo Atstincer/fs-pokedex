@@ -41,4 +41,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG_PREFIX: v
           DEFAULT_BUMP: patch
-          # DRY_RUN: true
+          DRY_RUN: true
