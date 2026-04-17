@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Build script"
+echo "Executing Render build script"
 
 # installing dependencies
 npm install
