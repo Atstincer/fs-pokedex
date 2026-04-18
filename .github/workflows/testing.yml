@@ -8,6 +8,8 @@ on:
 jobs:
   a_test_job:
     runs-on: ubuntu-latest
+    env:
+      COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
     steps:
       - uses: actions/checkout@v6
       - name: github context
@@ -19,12 +21,8 @@ jobs:
           COMMITS: ${{ toJson(github.event.commits) }}
         run: echo "$COMMITS"
       - name: commit messages
-        env:
-          COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
         run: echo "$COMMIT_MESSAGES"
       - name: evaluating commit messages
-        env:
-          COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
         if: ${{contains(join(env.COMMIT_MESSAGES),'try')}}
         run: echo "COMMIT_MESSAGES contains try"
         
