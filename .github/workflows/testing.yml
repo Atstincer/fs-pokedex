@@ -21,6 +21,10 @@ jobs:
       - name: commit messages
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
-          CMSTRING: join(COMMIT_MESSAGES)
-        run: echo "$COMMIT_MESSAGES" "$CMSTRING"
+        run: echo "$COMMIT_MESSAGES"
+      - name: evaluating commit messages
+        env:
+          COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
+        if: ${{!contains(join(COMMIT_MESSAGES),'#try')}}
+        run: echo "COMMIT_MESSAGES contains '#try'"
         
