@@ -22,7 +22,10 @@ jobs:
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
         run: echo "$COMMIT_MESSAGES"
-        if: ${{!contains(join($COMMIT_MESSAGES),'#try')}}
+      - name: evaluating commit messages
+        env:
+          COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
+        if: ${{contains(join(env.COMMIT_MESSAGES),'#try')}}
         run: echo "COMMIT_MESSAGES contains '#try'"
         
         
