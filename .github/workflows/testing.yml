@@ -21,6 +21,6 @@ jobs:
       - name: commit messages
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
-          CMSTRING: ${{join(COMMIT_MESSAGES)}}
+          CMSTRING: join(COMMIT_MESSAGES)
         run: echo "$COMMIT_MESSAGES" "$CMSTRING"
         
