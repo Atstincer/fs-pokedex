@@ -9,6 +9,7 @@ jobs:
   a_test_job:
     runs-on: ubuntu-latest
     env:
+      COMMITS: ${{ toJson(github.event.commits) }}
       COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
     steps:
       - uses: actions/checkout@v6
@@ -16,10 +17,12 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-      - name: commits
-        env:
-          COMMITS: ${{ toJson(github.event.commits) }}
+      - name: commits general
         run: echo "$COMMITS"
+      - name: first commit id
+        run: echo "$COMMITS[0].id"
+      - name: first commit message
+        run: echo "$COMMITS[0].message"
       - name: commit messages
         run: echo "$COMMIT_MESSAGES"
       - name: evaluating commit messages
