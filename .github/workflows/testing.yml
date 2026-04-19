@@ -20,11 +20,11 @@ jobs:
       - name: commits general
         run: echo "$COMMITS"
       - name: head commit
-        run: echo "Head commit: ${{github.head_commit}}"
+        run: echo "Head commit ${{github.head_commit}}"
       - name: first commit id
-        run: echo "Commit id: ${{github.event.commits[0].id}}"
+        run: echo "Commit id ${{github.event.commits[0].id}}"
       - name: first commit message
-        run: echo "Commit message: ${{github.event.commits[0].message}}"
+        run: echo "Commit message ${{github.event.commits[0].message}}"
       - name: commit messages
         run: echo "$COMMIT_MESSAGES"
       - name: evaluating commit messages
