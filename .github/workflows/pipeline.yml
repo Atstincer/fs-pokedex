@@ -30,6 +30,7 @@ jobs:
       - name: Run Playwright tests
         run: npm run test:e2e
   deploy:
+    runs-on: ubuntu-latest
     needs: [build_and_test]
     env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
@@ -38,6 +39,7 @@ jobs:
         if: ${{ github.event_name == 'push' && !contains(join(env.COMMIT_MESSAGES),'#skip') }}
         run: curl ${{ secrets.RENDER_DEPLOY_HOOK }}
   notify_success:
+    runs-on: ubuntu-latest
     needs: [deploy]
     steps:
       - name: Notify discord if deployment success
@@ -56,6 +58,7 @@ jobs:
             **Message:** ${{ github.event.commits[0].message }}
             **Author:** ${{ github.event.commits[0].author.name }}
   notify_failure:
+    runs-on: ubuntu-latest
     needs: [deploy]
     steps:
       - name: Notify discord if deployment fails
