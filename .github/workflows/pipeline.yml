@@ -14,9 +14,9 @@ jobs:
     env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
     steps:
-      - name: making job to fail
-        if: ${{ github.event_name == 'push' }}
-        run: exit 1
+#      - name: making job to fail
+#        if: ${{ github.event_name == 'push' }}
+#        run: exit 1
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6        
         with:
