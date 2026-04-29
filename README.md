@@ -15,3 +15,7 @@ Start by running `npm install` inside the project folder
 ## Deployed app
 
 <https://fs-pokedex-0ium.onrender.com>
+
+## "The other repository" (21. Your own pipeline)
+
+<https://github.com/Atstincer/phonebook>
